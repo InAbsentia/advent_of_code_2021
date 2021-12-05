@@ -11,9 +11,9 @@ fn main() {
     let day = &args[1];
     let input = read_input(day);
 
-    println!("Running solution for day: {}", day);
+    println!("Calculating solution for day: {}", day);
 
-    let (part_one, part_two) = solve_fns(day)(input);
+    let (part_one, part_two) = solve_fn(day)(&input);
 
     println!("The solution to Part One is: {}", part_one);
     println!("The solution to Part Two is: {}", part_two);
@@ -32,9 +32,12 @@ fn read_input(day: &String) -> Vec<String> {
     }
 }
 
-fn solve_fns(day: &String) -> fn(Vec<String>) -> (i32, i32) {
+fn solve_fn<T: AsRef<str>>(day: &String) -> fn(&[T]) -> (i32, i32) {
     match day.as_str() {
         "1" => day01::solve,
-        _ => day01::solve,
+        _ => {
+            println!("No implementation found for day {}!", day);
+            process::exit(1);
+        }
     }
 }
