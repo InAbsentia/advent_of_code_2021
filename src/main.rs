@@ -2,6 +2,7 @@ use std::{env, fs, process};
 
 mod day01;
 mod day02;
+mod day03;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -37,6 +38,7 @@ fn solve_fn<T: AsRef<str>>(day: &String) -> fn(&[T]) -> (i32, i32) {
     match day.as_str() {
         "1" => day01::solve,
         "2" => day02::solve,
+        "3" => day03::solve,
         _ => {
             println!("No implementation found for day {}!", day);
             process::exit(1);
