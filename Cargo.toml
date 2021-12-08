@@ -7,3 +7,4 @@ authors = ["Brent Yoder <499565+InAbsentia@users.noreply.github.com>"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+regex = "1.5.4"
