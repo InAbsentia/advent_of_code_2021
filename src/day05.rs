@@ -122,35 +122,24 @@ impl Map {
     }
 }
 
-pub fn solve<T: AsRef<str>>(input: &[T]) -> (i32, i32) {
+pub fn solve<T: AsRef<str>>(input: &[T]) -> (usize, usize) {
     let lines: Vec<Line> = input.into_iter().map(|s| Line::parse(s.as_ref())).collect();
 
     (part_one(&lines), part_two(&lines))
 }
 
-fn part_one(lines: &Vec<Line>) -> i32 {
+fn part_one(lines: &Vec<Line>) -> usize {
     let mut map = Map::build(&lines);
     map.add_lines(lines, false);
 
-    map.intersection_count() as i32
+    map.intersection_count()
 }
 
-fn part_two(lines: &Vec<Line>) -> i32 {
+fn part_two(lines: &Vec<Line>) -> usize {
     let mut map = Map::build(&lines);
     map.add_lines(lines, true);
 
-    // 1010000110
-    // 0111000200
-    // 0020101110
-    // 0001020200
-    // 0112313211
-    // 0001020000
-    // 0010001000
-    // 0100000100
-    // 1000000010
-    // 2221110000
-
-    map.intersection_count() as i32
+    map.intersection_count()
 }
 
 #[cfg(test)]

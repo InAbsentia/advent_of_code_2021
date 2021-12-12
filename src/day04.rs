@@ -207,11 +207,14 @@ impl Game {
     }
 }
 
-pub fn solve<T: AsRef<str>>(lines: &[T]) -> (i32, i32) {
+pub fn solve<T: AsRef<str>>(lines: &[T]) -> (usize, usize) {
     let mut game = Game::build(lines);
     game.run();
 
-    (game.first_winner.score, game.last_winner.score)
+    (
+        game.first_winner.score as usize,
+        game.last_winner.score as usize,
+    )
 }
 
 #[cfg(test)]

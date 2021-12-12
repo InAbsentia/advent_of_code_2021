@@ -5,6 +5,7 @@ mod day02;
 mod day03;
 mod day04;
 mod day05;
+mod day06;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -36,13 +37,14 @@ fn read_input(day: &String) -> Vec<String> {
     }
 }
 
-fn solve_fn<T: AsRef<str>>(day: &String) -> fn(&[T]) -> (i32, i32) {
+fn solve_fn<T: AsRef<str>>(day: &String) -> fn(&[T]) -> (usize, usize) {
     match day.as_str() {
         "1" => day01::solve,
         "2" => day02::solve,
         "3" => day03::solve,
         "4" => day04::solve,
         "5" => day05::solve,
+        "6" => day06::solve,
         _ => {
             println!("No implementation found for day {}!", day);
             process::exit(1);

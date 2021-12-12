@@ -1,5 +1,5 @@
-pub fn solve<T: AsRef<str>>(lines: &[T]) -> (i32, i32) {
-    (part_one(&lines), part_two(&lines))
+pub fn solve<T: AsRef<str>>(lines: &[T]) -> (usize, usize) {
+    (part_one(&lines) as usize, part_two(&lines) as usize)
 }
 
 fn part_one<T: AsRef<str>>(lines: &[T]) -> i32 {

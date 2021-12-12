@@ -1,4 +1,4 @@
-pub fn solve<T: AsRef<str>>(input: &[T]) -> (i32, i32) {
+pub fn solve<T: AsRef<str>>(input: &[T]) -> (usize, usize) {
     let ints = to_ints(input);
     let part_one = sum_increases(ints);
 
@@ -8,7 +8,7 @@ pub fn solve<T: AsRef<str>>(input: &[T]) -> (i32, i32) {
         .collect();
     let part_two = sum_increases(windowed);
 
-    (part_one, part_two)
+    (part_one as usize, part_two as usize)
 }
 
 fn to_ints<T: AsRef<str>>(values: &[T]) -> Vec<i32> {

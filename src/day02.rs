@@ -1,4 +1,4 @@
-pub fn solve<T: AsRef<str>>(lines: &[T]) -> (i32, i32) {
+pub fn solve<T: AsRef<str>>(lines: &[T]) -> (usize, usize) {
     let commands: Vec<(String, i32)> = lines
         .into_iter()
         .map(|l| -> (String, i32) {
@@ -7,7 +7,7 @@ pub fn solve<T: AsRef<str>>(lines: &[T]) -> (i32, i32) {
         })
         .collect();
 
-    (part_one(&commands), part_two(&commands))
+    (part_one(&commands) as usize, part_two(&commands) as usize)
 }
 
 fn part_one(lines: &Vec<(String, i32)>) -> i32 {
